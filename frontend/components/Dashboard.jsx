@@ -228,13 +228,16 @@ export default function Dashboard() {
       {showHeader && (
         <header className="h-14 shrink-0 border-b border-slate-200 bg-white/90 backdrop-blur-md px-6 flex items-center justify-between z-30 shadow-xs transition-all">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center shadow-md shadow-rose-500/20">
-              <span className="font-serif-onam font-black text-lg text-white">O</span>
-            </div>
+            <img
+              src="/logo.png"
+              alt="MarketBytes Logo"
+              className="h-9 w-auto object-contain max-w-[160px]"
+            />
+            <div className="h-6 w-px bg-slate-200" />
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="font-bold text-base text-slate-900 tracking-tight">
-                  MarketBytes Onam Dispatcher
+                  Onam Dispatcher
                 </h1>
                 <span className="px-2 py-0.5 text-[10px] font-semibold tracking-wide bg-rose-50 text-rose-600 border border-rose-200 rounded-full">
                   Dynamic Studio

@@ -58,9 +58,11 @@ export function OnamEmailCard({
           {/* Top Header Row */}
           <div className="flex justify-between items-start mb-1">
             <div className="flex items-center gap-1.5">
-              <span className="font-bold text-xl tracking-tight text-slate-900 font-sans">
-                Market<span className="">Bytes</span>
-              </span>
+              <img
+                src="/logo.png"
+                alt="MarketBytes"
+                className="h-7 sm:h-9 w-auto object-contain"
+              />
             </div>
           </div>
 
@@ -443,7 +445,9 @@ export function generateEmailHTML({
     <![endif]-->
     <div class="bg-wrapper" style="background-image: url('${finalBgImageUrl}');">
       <div class="top-header" style="background-color: #ffffff !important;">
-        <div class="brand-title" style="color: #0f172a !important;">MarketBytes</div>
+        <div class="brand-title">
+          <img src="${typeof window !== 'undefined' ? `${window.location.origin}/logo.png` : 'https://onamwish.marketbytes.in/logo.png'}" alt="MarketBytes" style="max-height:36px; width:auto; display:inline-block;" />
+        </div>
         <div style="text-align: center; margin: 2px 0 4px 0;">
           <img src="${finalLogoUrl}" alt="Happy Onam" class="onam-logo-img" style="max-height:85px; width:auto; display:inline-block;" />
         </div>
