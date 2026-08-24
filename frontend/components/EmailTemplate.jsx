@@ -47,14 +47,14 @@ export function OnamEmailCard({
   const contextVars = { companyName, clientName, shortName: activeShort };
 
   return (
-    <div className="w-full max-w-[600px] mx-auto bg-white text-gray-800 shadow-2xl rounded-2xl overflow-hidden relative border border-gray-200 font-sans select-none flex flex-col">
+    <div className="w-full max-w-[600px] mx-auto bg-white text-gray-800 shadow-2xl sm:rounded-2xl rounded-none overflow-hidden relative sm:border sm:border-gray-200 border-none font-sans select-none flex flex-col">
       {/* Background Image Container */}
       <div
-        className="relative w-full bg-[length:100%_100%] bg-no-repeat min-h-[720px] sm:min-h-[960px] flex flex-col justify-between flex-1"
+        className="relative w-full bg-[length:100%_100%] bg-no-repeat min-h-0 sm:min-h-[960px] flex flex-col justify-between flex-1"
         style={{ backgroundImage: `url(${bgImageUrl})` }}
       >
         {/* Top Arc Layer */}
-        <div className="w-full bg-white pt-5 pb-7 px-4 sm:px-7 relative shadow-xs">
+        <div className="w-full bg-white pt-2.5 sm:pt-5 pb-1.5 sm:pb-7 px-3.5 sm:px-7 relative shadow-xs">
           {/* Top Header Row */}
           <div className="flex justify-between items-start mb-1">
             <div className="flex items-center gap-1.5">
@@ -65,31 +65,31 @@ export function OnamEmailCard({
           </div>
 
           {/* Centered Happy Onam Logo Header */}
-          <div className="flex flex-col items-center justify-center pt-1 pb-2 text-center">
+          <div className="flex flex-col items-center justify-center pt-1 pb-1 text-center">
             <img
               src="/Group 1.png"
               alt="Happy Onam"
-              className="h-20 sm:h-24 w-auto object-contain mx-auto mb-1"
+              className="h-14 sm:h-24 w-auto object-contain mx-auto mb-1"
             />
             
-            <p className="text-xs text-gray-600 font-medium tracking-wide mt-0.5">
+            <p className="text-[11px] sm:text-xs text-gray-600 font-medium tracking-wide mt-0.5">
               {subtitle}
             </p>
           </div>
 
           {/* Curved Bottom SVG Divider */}
           <div className="absolute left-0 bottom-0 w-full overflow-hidden leading-none translate-y-[99%] pointer-events-none">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-10 text-white fill-current">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-4 sm:h-10 text-white fill-current">
               <path d="M0,0 C300,90 900,90 1200,0 L1200,0 L0,0 Z"></path>
             </svg>
           </div>
         </div>
 
         {/* Content Section (Middle) - Mobile responsive padding */}
-        <div className="px-5 sm:pl-20 sm:pr-14 pt-4 pb-2 flex-1 flex flex-col justify-start text-gray-800 leading-relaxed font-sans text-xs sm:text-sm text-left">
+        <div className="px-3.5 sm:pl-20 sm:pr-14 pt-1 sm:pt-4 pb-2 flex-1 flex flex-col justify-start text-gray-800 leading-relaxed font-sans text-xs sm:text-sm text-left">
           {/* Main Heading & Greeting */}
-          <div className="mb-3 text-left">
-            <h3 className="text-sm sm:mt-4 sm:text-lg font-semibold text-slate-900 mb-2 tracking-tight text-left">
+          <div className="mb-2.5 sm:mb-3 text-left">
+            <h3 className="text-xs sm:text-lg font-semibold text-slate-900 mt-1 sm:mt-4 mb-1.5 sm:mb-2 tracking-tight text-left">
               Wishing You a Prosperous <span className="text-emerald-600">Harvest Season!</span>
             </h3>
             <p className="font-semibold text-gray-900 text-left">
@@ -98,7 +98,7 @@ export function OnamEmailCard({
           </div>
 
           {/* Body Paragraphs & Quotes - Left Aligned */}
-          <div className="space-y-3 text-slate-800 text-xs sm:text-sm leading-relaxed text-left">
+          <div className="space-y-2 sm:space-y-3 text-slate-800 text-xs sm:text-sm leading-relaxed text-left">
             {p1 && (
               <p className="text-slate-800 text-left">
                 {renderDynamicTextReact(p1, contextVars)}
@@ -131,18 +131,18 @@ export function OnamEmailCard({
           </div>
 
           {/* Sign off - Left Aligned with extra left indent */}
-          <div className="mt-5 text-xs sm:text-sm text-slate-800 font-sans text-left">
+          <div className="mt-3.5 sm:mt-5 text-xs sm:text-sm text-slate-800 font-sans text-left">
             <p className="text-left">With warm regards,</p>
             <p className="font-bold text-slate-900 mt-0.5 text-left">{senderName}.</p>
           </div>
         </div>
 
         {/* Spacer for Boat Graphic area at bottom of card */}
-        <div className="pb-28 sm:pb-48 z-10 pointer-events-none"></div>
+        <div className="pb-8 sm:pb-48 z-10 pointer-events-none"></div>
       </div>
 
       {/* Black Footer Section */}
-      <div className="w-full bg-[#0d0d0d] py-4 px-6 text-center z-20">
+      <div className="w-full bg-[#0d0d0d] py-3 sm:py-4 px-4 sm:px-6 text-center z-20">
         <a
           href={buttonUrl}
           target="_blank"
@@ -347,57 +347,57 @@ export function generateEmailHTML({
         background-position: top center !important;
       }
       .top-header {
-        padding: 14px 16px 8px 16px !important;
+        padding: 10px 14px 4px 14px !important;
       }
       .brand-title {
-        font-size: 17px !important;
-        margin-bottom: 4px !important;
+        font-size: 16px !important;
+        margin-bottom: 3px !important;
       }
       .onam-logo-img {
-        max-height: 68px !important;
+        max-height: 56px !important;
       }
       .onam-logo-subtitle {
-        font-size: 11.5px !important;
+        font-size: 11px !important;
       }
       .curve-divider {
-        height: 24px !important;
+        height: 14px !important;
       }
       .curve-divider svg {
-        height: 24px !important;
+        height: 14px !important;
       }
       .content-body {
-        padding: 12px 16px 10px 16px !important;
+        padding: 4px 14px 8px 14px !important;
         text-align: left !important;
       }
       .main-heading {
-        font-size: 15px !important;
-        margin-bottom: 8px !important;
+        font-size: 14.5px !important;
+        margin-bottom: 6px !important;
         text-align: left !important;
       }
       .dear-text {
         font-size: 13px !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 6px !important;
         text-align: left !important;
       }
       .paragraph {
         font-size: 12.5px !important;
-        line-height: 1.55 !important;
-        margin-bottom: 10px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 8px !important;
         text-align: left !important;
       }
       .sign-off {
-        margin-top: 14px !important;
+        margin-top: 12px !important;
         font-size: 13px !important;
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 16px 140px 16px !important;
+        padding: 0 14px 40px 14px !important;
       }
       .black-footer {
-        padding: 14px 16px !important;
+        padding: 12px 8px !important;
       }
       .cta-button {
-        padding: 9px 26px !important;
+        padding: 8px 24px !important;
         font-size: 13px !important;
       }
     }
