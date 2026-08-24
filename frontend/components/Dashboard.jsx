@@ -793,7 +793,7 @@ export default function Dashboard() {
                 <div className="h-5 bg-slate-800 w-full flex items-center justify-center">
                   <div className="w-16 h-3 bg-slate-900 rounded-full"></div>
                 </div>
-                <div className="flex-1 overflow-y-auto p-2 bg-slate-100">
+                <div className="flex-1 overflow-y-auto p-0 bg-slate-100">
                   <OnamEmailCard
                     companyName={companyName}
                     clientName={clientName}
