@@ -183,7 +183,8 @@ export function generateEmailHTML({
 
   const contextVars = { companyName, clientName, shortName: activeShort };
 
-  const finalLogoUrl = logoUrl || (typeof window !== "undefined" ? `${window.location.origin}/Group 1.png` : "https://onamwish.marketbytes.in/Group 1.png");
+  const rawLogoUrl = logoUrl || (typeof window !== "undefined" ? `${window.location.origin}/Group%201.png` : "https://onamwish.marketbytes.in/Group%201.png");
+  const finalLogoUrl = rawLogoUrl.replace(/ /g, "%20");
   const finalBgImageUrl = bgImageUrl || (typeof window !== "undefined" ? `${window.location.origin}/marketbytesonamwish.png` : "https://onamwish.marketbytes.in/marketbytesonamwish.png");
   const vmlBgImageUrl = (bgImageUrl && bgImageUrl.startsWith("http")) ? bgImageUrl : "https://onamwish.marketbytes.in/marketbytesonamwish.png";
 

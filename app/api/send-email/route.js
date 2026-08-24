@@ -53,27 +53,11 @@ export async function POST(request) {
       bottomSubQuote,
       buttonText,
       buttonUrl,
-      logoUrl: "https://onamwish.marketbytes.in/Group 1.png",
+      logoUrl: "https://onamwish.marketbytes.in/Group%201.png",
       bgImageUrl: "https://onamwish.marketbytes.in/marketbytesonamwish.png"
     });
 
     const attachments = [];
-    if (fs.existsSync(logoPath)) {
-      attachments.push({
-        filename: "Group 1.png",
-        path: logoPath,
-        cid: "onam_logo",
-        contentDisposition: "inline"
-      });
-    }
-    if (fs.existsSync(bgPath)) {
-      attachments.push({
-        filename: "marketbytesonamwish.png",
-        path: bgPath,
-        cid: "onam_bg",
-        contentDisposition: "inline"
-      });
-    }
 
     const activeShort = shortName || (companyName ? companyName.split(" ")[0] : "ALSI");
     const p1 = bodyText1 || `As the season of Onam brings with it the spirit of togetherness, gratitude, and prosperity, we extend our heartfelt wishes to you, your family and everyone at ${companyName}.`;
