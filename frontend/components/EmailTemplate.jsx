@@ -331,7 +331,7 @@ export function generateEmailHTML({
       }
     }
 
-    /* Mobile Overrides ONLY (< 600px) */
+    /* Mobile Responsive Overrides ONLY (< 600px) */
     @media only screen and (max-width: 600px) {
       .card-container {
         width: 100% !important;
@@ -341,62 +341,63 @@ export function generateEmailHTML({
         border: none !important;
       }
       .bg-wrapper {
-        min-height: 0 !important;
+        min-height: 620px !important;
         background-size: 100% 100% !important;
+        background-position: top center !important;
       }
       .top-header {
-        padding: 10px 14px 4px 14px !important;
+        padding: 14px 18px 8px 18px !important;
       }
       .brand-title {
-        font-size: 16px !important;
-        margin-bottom: 2px !important;
+        font-size: 17px !important;
+        margin-bottom: 4px !important;
       }
       .onam-logo-img {
-        max-height: 55px !important;
+        max-height: 68px !important;
       }
       .onam-logo-subtitle {
-        font-size: 10.5px !important;
+        font-size: 11.5px !important;
       }
       .curve-divider {
-        height: 20px !important;
+        height: 24px !important;
       }
       .curve-divider svg {
-        height: 20px !important;
+        height: 24px !important;
       }
       .content-body {
-        padding: 8px 20px 2px 64px !important;
+        padding: 12px 22px 10px 44px !important;
         text-align: left !important;
       }
       .main-heading {
-        font-size: 14px !important;
-        margin-bottom: 6px !important;
-        text-align: left !important;
-      }
-      .dear-text {
-        font-size: 12px !important;
-        margin-bottom: 6px !important;
-        text-align: left !important;
-      }
-      .paragraph {
-        font-size: 11.5px !important;
-        line-height: 1.5 !important;
+        font-size: 15px !important;
         margin-bottom: 8px !important;
         text-align: left !important;
       }
+      .dear-text {
+        font-size: 13px !important;
+        margin-bottom: 8px !important;
+        text-align: left !important;
+      }
+      .paragraph {
+        font-size: 12.5px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 10px !important;
+        text-align: left !important;
+      }
       .sign-off {
-        margin-top: 10px !important;
-        font-size: 11.5px !important;
+        margin-top: 14px !important;
+        font-size: 13px !important;
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 16px 140px 16px !important;
+        padding: 0 20px 160px 20px !important;
       }
       .black-footer {
-        padding: 12px 14px !important;
+        padding: 14px 18px !important;
       }
       .cta-button {
-        padding: 7px 20px !important;
-        font-size: 12px !important;
+        padding: 9px 26px !important;
+        font-size: 13px !important;
       }
     }
 
