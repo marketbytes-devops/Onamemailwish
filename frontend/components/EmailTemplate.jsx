@@ -183,8 +183,9 @@ export function generateEmailHTML({
 
   const contextVars = { companyName, clientName, shortName: activeShort };
 
-  const finalLogoUrl = logoUrl || (typeof window !== "undefined" ? `${window.location.origin}/Group 1.png` : "cid:onam_logo");
-  const finalBgImageUrl = bgImageUrl || (typeof window !== "undefined" ? `${window.location.origin}/marketbytesonamwish.png` : "cid:onam_bg");
+  const finalLogoUrl = logoUrl || (typeof window !== "undefined" ? `${window.location.origin}/Group 1.png` : "https://onamwish.marketbytes.in/Group 1.png");
+  const finalBgImageUrl = bgImageUrl || (typeof window !== "undefined" ? `${window.location.origin}/marketbytesonamwish.png` : "https://onamwish.marketbytes.in/marketbytesonamwish.png");
+  const vmlBgImageUrl = (bgImageUrl && bgImageUrl.startsWith("http")) ? bgImageUrl : "https://onamwish.marketbytes.in/marketbytesonamwish.png";
 
   return `<!DOCTYPE html>
 <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -431,7 +432,7 @@ export function generateEmailHTML({
   <div class="card-container">
     <!--[if gte mso 9]>
     <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;height:940px;">
-      <v:fill type="frame" src="${finalBgImageUrl}" color="#ffffff" />
+      <v:fill type="frame" src="${vmlBgImageUrl}" color="#ffffff" />
       <v:textbox inset="0,0,0,0">
     <![endif]-->
     <div class="bg-wrapper" style="background-image: url('${finalBgImageUrl}');">

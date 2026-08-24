@@ -53,8 +53,8 @@ export async function POST(request) {
       bottomSubQuote,
       buttonText,
       buttonUrl,
-      logoUrl: "cid:onam_logo",
-      bgImageUrl: "cid:onam_bg"
+      logoUrl: "https://onamwish.marketbytes.in/Group 1.png",
+      bgImageUrl: "https://onamwish.marketbytes.in/marketbytesonamwish.png"
     });
 
     const attachments = [];
