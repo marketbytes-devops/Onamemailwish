@@ -75,6 +75,15 @@ export async function POST(request) {
       });
     }
 
+    const activeShort = shortName || (companyName ? companyName.split(" ")[0] : "ALSI");
+    const p1 = bodyText1 || `As the season of Onam brings with it the spirit of togetherness, gratitude, and prosperity, we extend our heartfelt wishes to you, your family and everyone at ${companyName}.`;
+    const p2 = bodyText2 || `Onam is a beautiful time to celebrate the people and relationships that make every journey meaningful. We truly appreciate the opportunity to work with you and the ${activeShort} team and value the connection we have built along the way.`;
+    const p3 = bodyText3 || `Your support and collaboration have made our association a wonderful experience. As we look ahead, we hope to continue sharing ideas, achieving new milestones and being part of many more meaningful moments together.`;
+    const quote = bottomQuote || `May this Onam bring your home the warmth of family, the joy of togetherness and a year ahead filled with peace, good health, prosperity and new beginnings.`;
+    const subQuote = bottomSubQuote || `Wishing you and your family a blessed and joyful Onam.`;
+
+    const textContent = `Dear ${clientName ? clientName : `${companyName} Team`},\n\n${p1}\n\n${p2}\n\n${p3}\n\n${quote}\n\n${subQuote}\n\nWith warm regards,\n${senderName}.`;
+
     // Check if custom SMTP parameters are supplied or fall back to environment / Hostinger credentials
     const host = smtpConfig?.host || process.env.SMTP_HOST || "smtp.hostinger.com";
     const port = smtpConfig?.port || process.env.SMTP_PORT || "465";
@@ -95,9 +104,11 @@ export async function POST(request) {
 
       const info = await transporter.sendMail({
         from: `"${senderName}" <${user}>`,
+        replyTo: user,
         to: recipientList.join(", "),
         cc: ccList.length > 0 ? ccList.join(", ") : undefined,
         subject,
+        text: textContent,
         html: htmlContent,
         attachments
       });
