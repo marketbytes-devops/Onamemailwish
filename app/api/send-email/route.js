@@ -75,19 +75,22 @@ export async function POST(request) {
       });
     }
 
-    // Check if custom SMTP parameters are supplied
-    const host = smtpConfig?.host || process.env.SMTP_HOST;
-    const port = smtpConfig?.port || process.env.SMTP_PORT;
-    const user = smtpConfig?.user || process.env.SMTP_USER;
-    const pass = smtpConfig?.pass || process.env.SMTP_PASS;
+    // Check if custom SMTP parameters are supplied or fall back to environment / Hostinger credentials
+    const host = smtpConfig?.host || process.env.SMTP_HOST || "smtp.hostinger.com";
+    const port = smtpConfig?.port || process.env.SMTP_PORT || "465";
+    const user = smtpConfig?.user || process.env.SMTP_USER || "work@marketbyteswebworks.com";
+    const pass = smtpConfig?.pass || process.env.SMTP_PASS || "@jRvt&vnte:0";
 
     if (host && user && pass) {
       // Create real SMTP Transporter
       const transporter = nodemailer.createTransport({
         host,
-        port: Number(port) || 587,
+        port: Number(port) || 465,
         secure: Number(port) === 465,
         auth: { user, pass },
+        tls: {
+          rejectUnauthorized: false
+        }
       });
 
       const info = await transporter.sendMail({
