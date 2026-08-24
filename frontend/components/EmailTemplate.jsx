@@ -342,12 +342,12 @@ export function generateEmailHTML({
         border: none !important;
       }
       .bg-wrapper {
-        min-height: 620px !important;
+        min-height: 0 !important;
         background-size: 100% 100% !important;
         background-position: top center !important;
       }
       .top-header {
-        padding: 14px 18px 8px 18px !important;
+        padding: 14px 16px 8px 16px !important;
       }
       .brand-title {
         font-size: 17px !important;
@@ -366,7 +366,7 @@ export function generateEmailHTML({
         height: 24px !important;
       }
       .content-body {
-        padding: 12px 22px 10px 44px !important;
+        padding: 12px 16px 10px 16px !important;
         text-align: left !important;
       }
       .main-heading {
@@ -381,7 +381,7 @@ export function generateEmailHTML({
       }
       .paragraph {
         font-size: 12.5px !important;
-        line-height: 1.6 !important;
+        line-height: 1.55 !important;
         margin-bottom: 10px !important;
         text-align: left !important;
       }
@@ -391,10 +391,10 @@ export function generateEmailHTML({
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 20px 160px 20px !important;
+        padding: 0 16px 140px 16px !important;
       }
       .black-footer {
-        padding: 14px 18px !important;
+        padding: 14px 16px !important;
       }
       .cta-button {
         padding: 9px 26px !important;
