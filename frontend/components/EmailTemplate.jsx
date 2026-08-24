@@ -131,14 +131,14 @@ export function OnamEmailCard({
           </div>
 
           {/* Sign off - Left Aligned with extra left indent */}
-          <div className="mt-8 sm:mt-5 text-xs sm:text-sm text-slate-800 font-sans text-left">
+          <div className="mt-8 sm:mt-5 text-xs sm:text-sm text-slate-800 font-sans text-left pb-14 sm:pb-0">
             <p className="text-left">With warm regards,</p>
             <p className="font-bold text-slate-900 mt-0.5 text-left">{senderName}.</p>
           </div>
         </div>
 
         {/* Spacer for Boat Graphic area at bottom of card */}
-        <div className="pb-16 sm:pb-48 z-10 pointer-events-none"></div>
+        <div className="pb-28 sm:pb-48 z-10 pointer-events-none"></div>
       </div>
 
       {/* Black Footer Section */}
@@ -390,11 +390,12 @@ export function generateEmailHTML({
       }
       .sign-off {
         margin-top: 28px !important;
+        padding-bottom: 48px !important;
         font-size: 13px !important;
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 14px 60px 14px !important;
+        padding: 0 14px 100px 14px !important;
       }
       .black-footer {
         padding: 12px 8px !important;
