@@ -181,7 +181,7 @@ export function OnamEmailCard({
             )}
 
             {subQuote && (
-              <p className="text-slate-900 text-left text-[13.5px] sm:text-sm font-normal">
+              <p className="font-bold text-slate-950 text-left text-[13.5px] sm:text-sm">
                 {renderDynamicTextReact(subQuote, contextVars)}
               </p>
             )}
@@ -340,6 +340,7 @@ export function generateEmailHTML({
     .green-text { color: #059669 !important; }
     .dear-text { font-weight: 700; color: #0f172a !important; margin-bottom: 8px; margin-top: 6px; text-align: left; font-size: 14.5px; }
     .paragraph { margin-bottom: 9px; color: #0f172a !important; font-size: 13.5px; line-height: 1.6; font-weight: 400; text-align: left; }
+    .subquote-text { font-weight: 700 !important; color: #020617 !important; text-align: left; }
     .sign-off { margin-top: 14px; font-size: 14px; color: #0f172a !important; font-weight: 400; text-align: left; }
     .bottom-section {
       text-align: left;
@@ -456,6 +457,11 @@ export function generateEmailHTML({
       .paragraph.quote-text {
         margin-top: 6px !important;
       }
+      .subquote-text {
+        font-weight: 700 !important;
+        color: #020617 !important;
+        text-align: left !important;
+      }
       .sign-off {
         margin-top: 12px !important;
         padding-bottom: 0px !important;
@@ -487,6 +493,7 @@ export function generateEmailHTML({
       .green-text { color: #059669 !important; }
       .dear-text { color: #0f172a !important; text-align: left !important; font-weight: 700 !important; }
       .paragraph { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
+      .subquote-text { color: #020617 !important; text-align: left !important; font-weight: 700 !important; }
       .sign-off { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
       .black-footer { background-color: #0d0d0d !important; }
     }
@@ -501,6 +508,7 @@ export function generateEmailHTML({
     u + .body .green-text { color: #059669 !important; }
     u + .body .dear-text { color: #0f172a !important; text-align: left !important; font-weight: 700 !important; }
     u + .body .paragraph { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
+    u + .body .subquote-text { color: #020617 !important; text-align: left !important; font-weight: 700 !important; }
     u + .body .sign-off { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
   </style>
 </head>
@@ -533,7 +541,7 @@ export function generateEmailHTML({
         ${p2 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(p2, contextVars)}</div>` : ''}
         ${p3 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(p3, contextVars)}</div>` : ''}
         ${quote ? `<div class="paragraph quote-text" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(quote, contextVars)}</div>` : ''}
-        ${subQuote ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(subQuote, contextVars)}</div>` : ''}
+        ${subQuote ? `<div class="paragraph subquote-text" style="color: #020617 !important; font-weight: 700; text-align: left;">${renderDynamicTextHTML(subQuote, contextVars)}</div>` : ''}
         <div class="sign-off" style="color: #0f172a !important; text-align: left;">
           <p style="margin:0; color: #0f172a !important; font-weight: 400; text-align: left;">With warm regards,</p>
           <p style="margin:2px 0 0 0; font-weight: 700; color: #020617 !important; text-align: left;">${senderName}.</p>
