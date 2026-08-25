@@ -140,7 +140,7 @@ export function OnamEmailCard({
         </div>
 
         {/* Spacer for Boat Graphic area at bottom of card - Increased to push boat down on mobile */}
-        <div className="pb-64 sm:pb-48 z-10 pointer-events-none"></div>
+        <div className="pb-[350px] sm:pb-48 z-10 pointer-events-none"></div>
       </div>
 
       {/* Black Footer Section */}
@@ -410,7 +410,7 @@ export function generateEmailHTML({
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 14px 270px 14px !important;
+        padding: 0 14px 350px 14px !important;
       }
       .black-footer {
         padding: 12px 8px !important;
