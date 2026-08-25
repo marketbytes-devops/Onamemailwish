@@ -88,10 +88,11 @@ export function OnamEmailCard({
   bottomQuote,
   bottomSubQuote,
   bgImageUrl = "/marketbytesonamwish.jpg",
-  buttonText = "▶ Watch MarketBytes Onam 2k26 ↗",
+  buttonText = "▶︎ Watch MarketBytes Onam 2k26 ↗︎",
   buttonUrl = "https://youtu.be/DLJwI_ETPds?si=ohZEKjREvNEPMmIa"
 }) {
   const activeShort = shortName || (companyName ? companyName.split(" ")[0] : "ALSI");
+  const formattedButtonText = (buttonText || "▶︎ Watch MarketBytes Onam 2k26 ↗︎").replace(/▶️?/g, "▶︎").replace(/↗️?/g, "↗︎");
 
   const p1 = bodyText1 ?? `As the season of Onam brings with it the spirit of togetherness, gratitude, and prosperity, we extend our heartfelt wishes to you, your family and everyone at {{company_name}}.`;
   const p2 = bodyText2 ?? `Onam is a beautiful time to celebrate the people and relationships that make every journey meaningful. We truly appreciate the opportunity to work with you and the ${activeShort} team and value the connection we have built along the way.`;
@@ -207,7 +208,7 @@ export function OnamEmailCard({
           className="inline-block bg-[#f89a1c] hover:bg-[#e0880f] text-white font-bold text-xs sm:text-sm py-2.5 px-8 rounded-full shadow-md transition-all tracking-wide"
           style={{ animation: "pulse-beat 1.6s infinite ease-in-out" }}
         >
-          {buttonText}
+          {formattedButtonText}
         </a>
       </div>
     </div>
@@ -229,10 +230,11 @@ export function generateEmailHTML({
   bgImageUrl,
   logoUrl,
   logo2Url,
-  buttonText = "▶ Watch MarketBytes Onam 2k26 ↗",
+  buttonText = "▶︎ Watch MarketBytes Onam 2k26 ↗︎",
   buttonUrl = "https://youtu.be/DLJwI_ETPds?si=ohZEKjREvNEPMmIa"
 }) {
   const activeShort = shortName || (companyName ? companyName.split(" ")[0] : "ALSI");
+  const formattedButtonText = (buttonText || "▶︎ Watch MarketBytes Onam 2k26 ↗︎").replace(/▶️?/g, "▶︎").replace(/↗️?/g, "↗︎");
 
   const p1 = bodyText1 ?? `As the season of Onam brings with it the spirit of togetherness, gratitude, and prosperity, we extend our heartfelt wishes to you, your family and everyone at {{company_name}}.`;
   const p2 = bodyText2 ?? `Onam is a beautiful time to celebrate the people and relationships that make every journey meaningful. We truly appreciate the opportunity to work with you and the ${activeShort} team and value the connection we have built along the way.`;
@@ -568,7 +570,7 @@ export function generateEmailHTML({
     <![endif]-->
 
     <div class="black-footer" style="background-color: #0d0d0d !important;">
-      <a href="${buttonUrl}" class="cta-button" target="_blank">${buttonText}</a>
+      <a href="${buttonUrl}" class="cta-button" target="_blank">${formattedButtonText}</a>
     </div>
   </div>
 </body>

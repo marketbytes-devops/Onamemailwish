@@ -57,7 +57,7 @@ export default function Dashboard() {
     "May this Onam bring your home the warmth of family, the joy of togetherness and a year ahead filled with peace, good health, prosperity and new beginnings."
   );
   const [bottomSubQuote, setBottomSubQuote] = useState("Wishing you and your family a blessed and joyful Onam.");
-  const [buttonText, setButtonText] = useState("▶ Watch MarketBytes Onam 2k26 ↗");
+  const [buttonText, setButtonText] = useState("▶︎ Watch MarketBytes Onam 2k26 ↗︎");
   const [buttonUrl, setButtonUrl] = useState("https://youtu.be/DLJwI_ETPds?si=ohZEKjREvNEPMmIa");
 
   // SMTP Settings
