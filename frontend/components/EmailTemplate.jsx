@@ -204,7 +204,8 @@ export function OnamEmailCard({
           href={buttonUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-[#f89a1c] hover:bg-[#e0880f] text-white font-bold text-xs sm:text-sm py-2.5 px-8 rounded-full shadow-md transition-colors tracking-wide"
+          className="inline-block bg-[#f89a1c] hover:bg-[#e0880f] text-white font-bold text-xs sm:text-sm py-2.5 px-8 rounded-full shadow-md transition-all tracking-wide"
+          style={{ animation: "pulse-beat 1.8s infinite ease-in-out" }}
         >
           {buttonText}
         </a>
@@ -351,6 +352,20 @@ export function generateEmailHTML({
       padding: 16px 20px;
       text-align: center;
     }
+    @keyframes pulse-beat {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 4px 6px rgba(248, 154, 28, 0.3);
+      }
+      50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 18px rgba(248, 154, 28, 0.7);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 6px rgba(248, 154, 28, 0.3);
+      }
+    }
     .cta-button {
       display: inline-block;
       background-color: #f89a1c;
@@ -361,6 +376,8 @@ export function generateEmailHTML({
       padding: 10px 32px;
       border-radius: 50px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      animation: pulse-beat 1.8s infinite ease-in-out;
+      transition: transform 0.2s ease;
     }
 
     /* Desktop View (> 600px) */
