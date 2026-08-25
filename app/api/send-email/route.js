@@ -192,11 +192,20 @@ export async function POST(request) {
       errStr.includes("451 4.7.1") ||
       errStr.toLowerCase().includes("exceeded");
 
+    const isAuthError =
+      errStr.includes("535") ||
+      errStr.toLowerCase().includes("authentication failed") ||
+      errStr.toLowerCase().includes("invalid login");
+
     return NextResponse.json(
       {
         success: false,
         error: errStr || "Failed to process email dispatch.",
         isRateLimit,
+        isAuthError,
+        authErrorDetails: isAuthError
+          ? "SMTP Authentication Failed (535 5.7.8). Check that your email & password are correct. If updated in .env.local, restart Next.js dev server. For Gmail, generate a 16-character App Password."
+          : undefined,
         rateLimitDetails: isRateLimit
           ? "Hostinger SMTP rate limit reached. Hostinger counts each CC email as an additional recipient towards your hourly limit. Wait 5-10 minutes for Hostinger's quota to reset, or configure custom SMTP credentials in the SMTP Server tab."
           : undefined

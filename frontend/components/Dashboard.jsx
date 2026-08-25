@@ -903,6 +903,35 @@ export default function Dashboard() {
               {sendResult.message || sendResult.error}
             </p>
 
+            {(sendResult.isAuthError || (sendResult.error && (sendResult.error.includes("535") || sendResult.error.toLowerCase().includes("authentication failed")))) && (
+              <div className="mb-4 p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-xs space-y-2">
+                <p className="font-bold text-rose-900 flex items-center gap-1.5">
+                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                  SMTP Authentication Troubleshooting (Error 535)
+                </p>
+                <div className="text-[11px] text-rose-800 space-y-1.5 leading-relaxed">
+                  <p>Common reasons and quick fixes for authentication failure:</p>
+                  <ul className="list-disc list-inside space-y-1 text-rose-900">
+                    <li><strong className="text-rose-950">1. Restart Next.js Dev Server:</strong> If you updated <code className="font-mono bg-rose-100 px-1 py-0.5 rounded">.env.local</code> while the server was running, stop and restart <code className="font-mono bg-rose-100 px-1 py-0.5 rounded">npm run dev</code> for changes to take effect.</li>
+                    <li><strong className="text-rose-950">2. Hostinger Propagation / Lockout:</strong> Password changes on Hostinger take 3–5 minutes to sync. Also, multiple failed logins block SMTP for 10–15 minutes.</li>
+                    <li><strong className="text-rose-950">3. Gmail Account:</strong> If using Gmail, standard account passwords don&apos;t work. You MUST use a 16-character <strong>Google App Password</strong> and host <code className="font-mono bg-rose-100 px-1 py-0.5 rounded">smtp.gmail.com</code>.</li>
+                    <li><strong className="text-rose-950">4. SMTP Tab in Dashboard:</strong> Check the{" "}
+                      <button
+                        onClick={() => {
+                          setSendResult(null);
+                          setActiveTab("settings");
+                        }}
+                        className="font-bold underline text-rose-700 hover:text-rose-900"
+                      >
+                        SMTP Server tab
+                      </button>{" "}
+                      to ensure Host, User, Pass, and Port are typed accurately.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            )}
+
             {(sendResult.isRateLimit || (sendResult.error && (sendResult.error.toLowerCase().includes("ratelimit") || sendResult.error.includes("451")))) && (
               <div className="mb-4 p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs space-y-2">
                 <p className="font-bold text-amber-900 flex items-center gap-1.5">
