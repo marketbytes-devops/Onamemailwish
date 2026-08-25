@@ -54,50 +54,50 @@ export function OnamEmailCard({
         style={{ backgroundImage: `url(${bgImageUrl})` }}
       >
         {/* Top Arc Layer */}
-        <div className="w-full bg-white pt-2.5 sm:pt-5 pb-1.5 sm:pb-7 px-3.5 sm:px-7 relative shadow-xs">
+        <div className="w-full bg-white pt-1.5 sm:pt-3 pb-0.5 sm:pb-3 px-3.5 sm:px-7 relative shadow-xs">
           {/* Top Header Row */}
-          <div className="flex justify-between items-start mb-1">
+          <div className="flex justify-between items-start mb-0.5">
             <div className="flex items-center gap-1.5">
               <img
                 src="/logo2.png"
                 alt=""
-                className="h-7 sm:h-9 w-auto object-contain"
+                className="h-6 sm:h-8 w-auto object-contain"
               />
             </div>
           </div>
 
           {/* Centered Happy Onam Logo Header */}
-          <div className="flex flex-col items-center justify-center pt-1 pb-1 text-center">
+          <div className="flex flex-col items-center justify-center pt-0.5 pb-0.5 text-center">
             <img
               src="/Group 1.png"
               alt="Happy Onam"
-              className="h-14 sm:h-24 w-auto object-contain mx-auto mb-1"
+              className="h-12 sm:h-20 w-auto object-contain mx-auto mb-0.5"
             />
             
-            <p className="text-[11px] sm:text-xs text-gray-600 font-medium tracking-wide mt-0.5">
+            <p className="text-[11px] sm:text-xs text-gray-600 font-medium tracking-wide mt-0">
               {subtitle}
             </p>
           </div>
 
           {/* Curved Bottom SVG Divider */}
           <div className="absolute left-0 bottom-0 w-full overflow-hidden leading-none translate-y-[99%] pointer-events-none">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-4 sm:h-10 text-white fill-current">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-3 sm:h-7 text-white fill-current">
               <path d="M0,0 C300,90 900,90 1200,0 L1200,0 L0,0 Z"></path>
             </svg>
           </div>
         </div>
 
-        {/* Content Section (Middle) - Mobile responsive padding */}
-        <div className="pl-[52px] pr-3.5 sm:pl-20 sm:pr-14 pt-3 sm:pt-4 pb-2 flex-1 flex flex-col justify-start text-gray-800 leading-relaxed font-sans text-xs sm:text-sm text-left">
+        {/* Content Section (Middle) - Compact top margin/padding to shift Dear Syam ~1.5cm up */}
+        <div className="pl-[52px] pr-3.5 sm:pl-20 sm:pr-14 pt-0 sm:pt-1 pb-2 flex-1 flex flex-col justify-start text-gray-800 leading-relaxed font-sans text-xs sm:text-sm text-left">
           {/* Main Heading & Greeting */}
-          <div className="mb-2.5 sm:mb-3 text-left">
-            <p className="font-semibold text-gray-900 text-left mt-0 sm:mt-4">
+          <div className="mb-1.5 sm:mb-2 text-left">
+            <p className="font-semibold text-gray-900 text-left mt-0 sm:mt-1">
               Dear {clientName ? clientName : `${companyName} Team`},
             </p>
           </div>
 
           {/* Body Paragraphs & Quotes - Left Aligned */}
-          <div className="space-y-2 sm:space-y-3 text-slate-800 text-xs sm:text-sm leading-relaxed text-left">
+          <div className="space-y-1.5 sm:space-y-2.5 text-slate-800 text-xs sm:text-sm leading-relaxed text-left">
             {p1 && (
               <p className="text-slate-800 text-left">
                 {renderDynamicTextReact(p1, contextVars)}
@@ -117,7 +117,7 @@ export function OnamEmailCard({
             )}
 
             {quote && (
-              <p className="text-slate-800 text-left mt-4 sm:mt-0">
+              <p className="text-slate-800 text-left mt-2 sm:mt-0">
                 {renderDynamicTextReact(quote, contextVars)}
               </p>
             )}
@@ -130,14 +130,14 @@ export function OnamEmailCard({
           </div>
 
           {/* Sign off - Left Aligned with extra left indent */}
-          <div className="mt-8 sm:mt-5 text-xs sm:text-sm text-slate-800 font-sans text-left pb-28 sm:pb-0">
+          <div className="mt-4 sm:mt-3 text-xs sm:text-sm text-slate-800 font-sans text-left pb-20 sm:pb-0">
             <p className="text-left">With warm regards,</p>
             <p className="font-bold text-slate-900 mt-0.5 text-left">{senderName}.</p>
           </div>
         </div>
 
         {/* Spacer for Boat Graphic area at bottom of card */}
-        <div className="pb-40 sm:pb-48 z-10 pointer-events-none"></div>
+        <div className="pb-36 sm:pb-44 z-10 pointer-events-none"></div>
       </div>
 
       {/* Black Footer Section */}
@@ -235,17 +235,17 @@ export function generateEmailHTML({
     }
     .top-header {
       background-color: #ffffff !important;
-      padding: 20px 28px 14px 28px;
+      padding: 10px 28px 6px 28px;
     }
     .brand-title {
       font-size: 20px;
       font-weight: 800;
       color: #0f172a !important;
       text-align: left;
-      margin: 0 0 6px 0;
+      margin: 0 0 4px 0;
     }
     .onam-logo-img {
-      max-height: 85px;
+      max-height: 72px;
       width: auto;
       display: inline-block;
       margin: 2px auto;
@@ -254,37 +254,37 @@ export function generateEmailHTML({
       color: #475569 !important;
       font-size: 12px;
       font-weight: 500;
-      margin-top: 4px;
+      margin-top: 2px;
       text-align: center;
     }
     .curve-divider {
       width: 100%;
-      height: 36px;
+      height: 24px;
       overflow: hidden;
       line-height: 0;
       margin-top: -1px;
     }
     .content-body {
-      padding: 16px 44px 10px 72px;
+      padding: 2px 44px 10px 72px;
       color: #1e293b !important;
       font-size: 14px;
-      line-height: 1.65;
+      line-height: 1.6;
       text-align: left;
     }
     .main-heading {
       color: #0f172a !important;
       font-size: 18px;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       text-align: left;
     }
     .green-text { color: #059669 !important; }
-    .dear-text { font-weight: 700; color: #0f172a !important; margin-bottom: 12px; text-align: left; }
-    .paragraph { margin-bottom: 12px; color: #334155 !important; font-size: 13.5px; line-height: 1.65; text-align: left; }
-    .sign-off { margin-top: 20px; font-size: 14px; color: #1e293b !important; text-align: left; }
+    .dear-text { font-weight: 700; color: #0f172a !important; margin-bottom: 8px; margin-top: 0px; text-align: left; }
+    .paragraph { margin-bottom: 9px; color: #334155 !important; font-size: 13.5px; line-height: 1.6; text-align: left; }
+    .sign-off { margin-top: 12px; font-size: 14px; color: #1e293b !important; text-align: left; }
     .bottom-section {
       text-align: left;
-      padding: 0 48px 220px 48px;
+      padding: 0 48px 200px 48px;
     }
     .black-footer {
       background-color: #0d0d0d !important;
@@ -313,7 +313,7 @@ export function generateEmailHTML({
         min-height: 940px !important;
       }
       .content-body {
-        padding: 16px 44px 10px 72px !important;
+        padding: 2px 44px 10px 72px !important;
         text-align: left !important;
       }
       .main-heading {
@@ -321,15 +321,16 @@ export function generateEmailHTML({
       }
       .paragraph {
         font-size: 13.5px !important;
-        line-height: 1.65 !important;
-        margin-bottom: 12px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 9px !important;
         text-align: left !important;
       }
       .sign-off {
+        margin-top: 12px !important;
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 48px 220px 48px !important;
+        padding: 0 48px 200px 48px !important;
       }
     }
 
@@ -348,56 +349,57 @@ export function generateEmailHTML({
         background-position: top center !important;
       }
       .top-header {
-        padding: 10px 14px 4px 14px !important;
+        padding: 6px 14px 2px 14px !important;
       }
       .brand-title {
         font-size: 16px !important;
-        margin-bottom: 3px !important;
+        margin-bottom: 2px !important;
       }
       .onam-logo-img {
-        max-height: 56px !important;
+        max-height: 48px !important;
       }
       .onam-logo-subtitle {
         font-size: 11px !important;
+        margin-top: 1px !important;
       }
       .curve-divider {
-        height: 14px !important;
+        height: 12px !important;
       }
       .curve-divider svg {
-        height: 14px !important;
+        height: 12px !important;
       }
       .content-body {
-        padding: 4px 14px 8px 52px !important;
+        padding: 0px 14px 6px 52px !important;
         text-align: left !important;
       }
       .main-heading {
         font-size: 14.5px !important;
-        margin-bottom: 6px !important;
+        margin-bottom: 4px !important;
         text-align: left !important;
       }
       .dear-text {
         font-size: 13px !important;
-        margin-top: 2px !important;
-        margin-bottom: 6px !important;
+        margin-top: 0px !important;
+        margin-bottom: 4px !important;
         text-align: left !important;
       }
       .paragraph {
         font-size: 12.5px !important;
-        line-height: 1.5 !important;
-        margin-bottom: 8px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 6px !important;
         text-align: left !important;
       }
       .paragraph.quote-text {
-        margin-top: 16px !important;
+        margin-top: 8px !important;
       }
       .sign-off {
-        margin-top: 28px !important;
-        padding-bottom: 80px !important;
+        margin-top: 12px !important;
+        padding-bottom: 60px !important;
         font-size: 13px !important;
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 14px 140px 14px !important;
+        padding: 0 14px 120px 14px !important;
       }
       .black-footer {
         padding: 12px 8px !important;
@@ -446,21 +448,21 @@ export function generateEmailHTML({
     <div class="bg-wrapper" style="background-image: url('${finalBgImageUrl}');">
       <div class="top-header" style="background-color: #ffffff !important;">
         <div class="brand-title">
-          <img src="${finalLogo2Url}" alt="" style="max-height:36px; width:auto; display:inline-block;" />
+          <img src="${finalLogo2Url}" alt="" style="max-height:32px; width:auto; display:inline-block;" />
         </div>
-        <div style="text-align: center; margin: 2px 0 4px 0;">
-          <img src="${finalLogoUrl}" alt="Happy Onam" class="onam-logo-img" style="max-height:85px; width:auto; display:inline-block;" />
+        <div style="text-align: center; margin: 2px 0 2px 0;">
+          <img src="${finalLogoUrl}" alt="Happy Onam" class="onam-logo-img" style="max-height:72px; width:auto; display:inline-block;" />
         </div>
         <div class="onam-logo-subtitle" style="color: #475569 !important;">${subtitle}</div>
       </div>
       <div class="curve-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="width: 100%; height: 36px; display: block;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="width: 100%; height: 24px; display: block;">
           <path d="M0,0 C300,90 900,90 1200,0 L1200,0 L0,0 Z" fill="#ffffff"></path>
         </svg>
       </div>
 
       <div class="content-body" style="color: #1e293b !important; text-align: left;">
-        <div class="dear-text" style="color: #0f172a !important; text-align: left; margin-top: 16px;">Dear ${clientName ? clientName : `${companyName} Team`},</div>
+        <div class="dear-text" style="color: #0f172a !important; text-align: left; margin-top: 0px;">Dear ${clientName ? clientName : `${companyName} Team`},</div>
         ${p1 ? `<div class="paragraph" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(p1, contextVars)}</div>` : ''}
         ${p2 ? `<div class="paragraph" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(p2, contextVars)}</div>` : ''}
         ${p3 ? `<div class="paragraph" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(p3, contextVars)}</div>` : ''}
@@ -468,7 +470,7 @@ export function generateEmailHTML({
         ${subQuote ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 700; text-align: left;">${renderDynamicTextHTML(subQuote, contextVars)}</div>` : ''}
         <div class="sign-off" style="color: #1e293b !important; text-align: left;">
           <p style="margin:0; color: #1e293b !important; text-align: left;">With warm regards,</p>
-          <p style="margin:4px 0 0 0; font-weight: 700; color: #0f172a !important; text-align: left;">${senderName}.</p>
+          <p style="margin:2px 0 0 0; font-weight: 700; color: #0f172a !important; text-align: left;">${senderName}.</p>
         </div>
       </div>
 
@@ -486,3 +488,4 @@ export function generateEmailHTML({
 </body>
 </html>`;
 }
+
