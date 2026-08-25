@@ -57,6 +57,8 @@ export default function Dashboard() {
     "May this Onam bring your home the warmth of family, the joy of togetherness and a year ahead filled with peace, good health, prosperity and new beginnings."
   );
   const [bottomSubQuote, setBottomSubQuote] = useState("Wishing you and your family a blessed and joyful Onam.");
+  const [buttonText, setButtonText] = useState("Watch MarketBytes Onam 2k26");
+  const [buttonUrl, setButtonUrl] = useState("https://youtu.be/DLJwI_ETPds?si=ohZEKjREvNEPMmIa");
 
   // SMTP Settings
   const [smtpConfig, setSmtpConfig] = useState({
@@ -132,6 +134,8 @@ export default function Dashboard() {
       bodyText3: processPlaceholder(bodyText3),
       bottomQuote: processPlaceholder(bottomQuote),
       bottomSubQuote: processPlaceholder(bottomSubQuote),
+      buttonText,
+      buttonUrl,
       bgImageUrl: typeof window !== "undefined" ? `${window.location.origin}/marketbytesonamwish.png` : "/marketbytesonamwish.png"
     });
 
@@ -153,6 +157,8 @@ export default function Dashboard() {
       bodyText3: processPlaceholder(bodyText3),
       bottomQuote: processPlaceholder(bottomQuote),
       bottomSubQuote: processPlaceholder(bottomSubQuote),
+      buttonText,
+      buttonUrl,
       bgImageUrl: typeof window !== "undefined" ? `${window.location.origin}/marketbytesonamwish.png` : "/marketbytesonamwish.png"
     });
 
@@ -195,6 +201,8 @@ export default function Dashboard() {
           bodyText3: processPlaceholder(bodyText3),
           bottomQuote: processPlaceholder(bottomQuote),
           bottomSubQuote: processPlaceholder(bottomSubQuote),
+          buttonText,
+          buttonUrl,
           smtpConfig: smtpConfig.host ? smtpConfig : undefined
         })
       });
@@ -219,6 +227,8 @@ export default function Dashboard() {
     bodyText3: processPlaceholder(bodyText3),
     bottomQuote: processPlaceholder(bottomQuote),
     bottomSubQuote: processPlaceholder(bottomSubQuote),
+    buttonText,
+    buttonUrl,
     bgImageUrl: typeof window !== "undefined" ? `${window.location.origin}/marketbytesonamwish.png` : "/marketbytesonamwish.png"
   });
 
@@ -598,6 +608,34 @@ export default function Dashboard() {
                     className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:border-rose-500 focus:outline-none leading-relaxed font-sans"
                   />
                 </div>
+
+                <div className="pt-3 border-t border-slate-100 space-y-3">
+                  <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">CTA Button Settings</h4>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      CTA Button Text
+                    </label>
+                    <input
+                      type="text"
+                      value={buttonText}
+                      onChange={(e) => setButtonText(e.target.value)}
+                      placeholder="e.g. Watch MarketBytes Onam 2k26"
+                      className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:border-rose-500 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      CTA Link URL
+                    </label>
+                    <input
+                      type="text"
+                      value={buttonUrl}
+                      onChange={(e) => setButtonUrl(e.target.value)}
+                      placeholder="e.g. https://youtu.be/..."
+                      className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:border-rose-500 focus:outline-none"
+                    />
+                  </div>
+                </div>
               </div>
             )}
 
@@ -785,6 +823,8 @@ export default function Dashboard() {
                     bodyText3={processPlaceholder(bodyText3)}
                     bottomQuote={processPlaceholder(bottomQuote)}
                     bottomSubQuote={processPlaceholder(bottomSubQuote)}
+                    buttonText={buttonText}
+                    buttonUrl={buttonUrl}
                     bgImageUrl="/marketbytesonamwish.png"
                   />
                 </div>
@@ -808,6 +848,8 @@ export default function Dashboard() {
                     bodyText3={processPlaceholder(bodyText3)}
                     bottomQuote={processPlaceholder(bottomQuote)}
                     bottomSubQuote={processPlaceholder(bottomSubQuote)}
+                    buttonText={buttonText}
+                    buttonUrl={buttonUrl}
                     bgImageUrl="/marketbytesonamwish.png"
                   />
                 </div>

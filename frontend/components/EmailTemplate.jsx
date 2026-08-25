@@ -33,8 +33,8 @@ export function OnamEmailCard({
   bottomQuote,
   bottomSubQuote,
   bgImageUrl = "/marketbytesonamwish.jpg",
-  buttonText = "Visit MarketBytes",
-  buttonUrl = "https://www.marketbytes.in/"
+  buttonText = "Watch MarketBytes Onam 2k26",
+  buttonUrl = "https://youtu.be/DLJwI_ETPds?si=ohZEKjREvNEPMmIa"
 }) {
   const activeShort = shortName || (companyName ? companyName.split(" ")[0] : "ALSI");
 
@@ -173,8 +173,8 @@ export function generateEmailHTML({
   bgImageUrl,
   logoUrl,
   logo2Url,
-  buttonText = "Visit MarketBytes",
-  buttonUrl = "https://www.marketbytes.in/"
+  buttonText = "Watch MarketBytes Onam 2k26",
+  buttonUrl = "https://youtu.be/DLJwI_ETPds?si=ohZEKjREvNEPMmIa"
 }) {
   const activeShort = shortName || (companyName ? companyName.split(" ")[0] : "ALSI");
 
