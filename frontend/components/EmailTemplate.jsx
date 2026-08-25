@@ -32,7 +32,7 @@ export function OnamEmailCard({
   bodyText3,
   bottomQuote,
   bottomSubQuote,
-  bgImageUrl = "/marketbytesonamwish.png",
+  bgImageUrl = "/marketbytesonamwish.jpg",
   buttonText = "Visit MarketBytes",
   buttonUrl = "https://www.marketbytes.in/"
 }) {
