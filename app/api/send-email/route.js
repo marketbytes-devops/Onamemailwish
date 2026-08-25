@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import path from "path";
-import fs from "fs";
 import { generateEmailHTML } from "@/frontend/components/EmailTemplate.jsx";
 
 export async function POST(request) {
@@ -37,9 +35,6 @@ export async function POST(request) {
       );
     }
 
-    const logoPath = path.join(process.cwd(), "public", "Group 1.png");
-    const bgPath = path.join(process.cwd(), "public", "marketbytesonamwish.png");
-
     const htmlContent = generateEmailHTML({
       companyName,
       clientName,
@@ -54,7 +49,8 @@ export async function POST(request) {
       buttonText,
       buttonUrl,
       logoUrl: "https://onamwish.marketbytes.in/Group%201.png",
-      bgImageUrl: "https://onamwish.marketbytes.in/marketbytesonamwish.png"
+      logo2Url: "https://onamwish.marketbytes.in/logo2.png",
+      bgImageUrl: "https://onamwish.marketbytes.in/marketbytesonamwish.jpg"
     });
 
     const attachments = [];

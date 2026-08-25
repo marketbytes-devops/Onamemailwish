@@ -59,7 +59,7 @@ export function OnamEmailCard({
           <div className="flex justify-between items-start mb-1">
             <div className="flex items-center gap-1.5">
               <img
-                src="/logo.png"
+                src="/logo2.png"
                 alt="MarketBytes"
                 className="h-7 sm:h-9 w-auto object-contain"
               />
@@ -172,6 +172,7 @@ export function generateEmailHTML({
   bottomSubQuote,
   bgImageUrl,
   logoUrl,
+  logo2Url,
   buttonText = "Visit MarketBytes",
   buttonUrl = "https://www.marketbytes.in/"
 }) {
@@ -187,8 +188,9 @@ export function generateEmailHTML({
 
   const rawLogoUrl = logoUrl || (typeof window !== "undefined" ? `${window.location.origin}/Group%201.png` : "https://onamwish.marketbytes.in/Group%201.png");
   const finalLogoUrl = rawLogoUrl.replace(/ /g, "%20");
-  const finalBgImageUrl = bgImageUrl || (typeof window !== "undefined" ? `${window.location.origin}/marketbytesonamwish.png` : "https://onamwish.marketbytes.in/marketbytesonamwish.png");
-  const vmlBgImageUrl = (bgImageUrl && bgImageUrl.startsWith("http")) ? bgImageUrl : "https://onamwish.marketbytes.in/marketbytesonamwish.png";
+  const finalLogo2Url = logo2Url || (typeof window !== "undefined" ? `${window.location.origin}/logo2.png` : "https://onamwish.marketbytes.in/logo2.png");
+  const finalBgImageUrl = bgImageUrl || (typeof window !== "undefined" ? `${window.location.origin}/marketbytesonamwish.jpg` : "https://onamwish.marketbytes.in/marketbytesonamwish.jpg");
+  const vmlBgImageUrl = (bgImageUrl && bgImageUrl.startsWith("http")) ? bgImageUrl : (bgImageUrl || "https://onamwish.marketbytes.in/marketbytesonamwish.jpg");
 
   return `<!DOCTYPE html>
 <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -446,7 +448,7 @@ export function generateEmailHTML({
     <div class="bg-wrapper" style="background-image: url('${finalBgImageUrl}');">
       <div class="top-header" style="background-color: #ffffff !important;">
         <div class="brand-title">
-          <img src="${typeof window !== 'undefined' ? `${window.location.origin}/logo.png` : 'https://onamwish.marketbytes.in/logo.png'}" alt="MarketBytes" style="max-height:36px; width:auto; display:inline-block;" />
+          <img src="${finalLogo2Url}" alt="MarketBytes" style="max-height:36px; width:auto; display:inline-block;" />
         </div>
         <div style="text-align: center; margin: 2px 0 4px 0;">
           <img src="${finalLogoUrl}" alt="Happy Onam" class="onam-logo-img" style="max-height:85px; width:auto; display:inline-block;" />
