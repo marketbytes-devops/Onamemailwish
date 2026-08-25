@@ -149,7 +149,7 @@ export function OnamEmailCard({
         >
           {/* Main Heading & Greeting */}
           <div className="mb-1 sm:mb-2.5 text-left">
-            <p className="font-normal text-slate-900 text-left mt-0 sm:mt-2 text-[13.5px] sm:text-base">
+            <p className="font-bold text-slate-950 text-left mt-0 sm:mt-2 text-[13.5px] sm:text-base">
               Dear {clientName ? <strong className="font-bold text-slate-950">{clientName}</strong> : <><strong className="font-bold text-slate-950">{companyName}</strong> Team</>},
             </p>
           </div>
@@ -338,7 +338,7 @@ export function generateEmailHTML({
       text-align: left;
     }
     .green-text { color: #059669 !important; }
-    .dear-text { font-weight: 400; color: #0f172a !important; margin-bottom: 8px; margin-top: 6px; text-align: left; font-size: 14.5px; }
+    .dear-text { font-weight: 700; color: #0f172a !important; margin-bottom: 8px; margin-top: 6px; text-align: left; font-size: 14.5px; }
     .paragraph { margin-bottom: 9px; color: #0f172a !important; font-size: 13.5px; line-height: 1.6; font-weight: 400; text-align: left; }
     .sign-off { margin-top: 14px; font-size: 14px; color: #0f172a !important; font-weight: 400; text-align: left; }
     .bottom-section {
@@ -442,7 +442,7 @@ export function generateEmailHTML({
         margin-top: 0px !important;
         margin-bottom: 6px !important;
         color: #0f172a !important;
-        font-weight: 400 !important;
+        font-weight: 700 !important;
         text-align: left !important;
       }
       .paragraph {
@@ -485,7 +485,7 @@ export function generateEmailHTML({
       .content-body { color: #0f172a !important; text-align: left !important; }
       .main-heading { color: #0f172a !important; text-align: left !important; }
       .green-text { color: #059669 !important; }
-      .dear-text { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
+      .dear-text { color: #0f172a !important; text-align: left !important; font-weight: 700 !important; }
       .paragraph { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
       .sign-off { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
       .black-footer { background-color: #0d0d0d !important; }
@@ -499,7 +499,7 @@ export function generateEmailHTML({
     u + .body .content-body { color: #0f172a !important; text-align: left !important; }
     u + .body .main-heading { color: #0f172a !important; text-align: left !important; }
     u + .body .green-text { color: #059669 !important; }
-    u + .body .dear-text { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
+    u + .body .dear-text { color: #0f172a !important; text-align: left !important; font-weight: 700 !important; }
     u + .body .paragraph { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
     u + .body .sign-off { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
   </style>
@@ -528,7 +528,7 @@ export function generateEmailHTML({
       </div>
 
       <div class="content-body" style="color: #0f172a !important; text-align: left;">
-        <div class="dear-text" style="color: #0f172a !important; font-weight: 400; text-align: left; margin-top: 0px;">Dear ${clientName ? `<strong style="font-weight: 700;">${clientName}</strong>` : `<strong style="font-weight: 700;">${companyName}</strong> Team`},</div>
+        <div class="dear-text" style="color: #0f172a !important; font-weight: 700; text-align: left; margin-top: 0px;">Dear ${clientName ? `<strong style="font-weight: 700;">${clientName}</strong>` : `<strong style="font-weight: 700;">${companyName}</strong> Team`},</div>
         ${p1 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(p1, contextVars)}</div>` : ''}
         ${p2 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(p2, contextVars)}</div>` : ''}
         ${p3 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(p3, contextVars)}</div>` : ''}
