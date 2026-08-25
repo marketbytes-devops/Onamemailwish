@@ -130,14 +130,14 @@ export function OnamEmailCard({
           </div>
 
           {/* Sign off - Left Aligned with extra left indent */}
-          <div className="mt-4 sm:mt-3 text-xs sm:text-sm text-slate-800 font-sans text-left pb-20 sm:pb-0">
-            <p className="text-left">With warm regards,</p>
+          <div className="mt-4 sm:mt-3 text-xs sm:text-sm text-slate-800 font-sans text-left pb-0">
+            <p className="text-left font-medium text-slate-900">With warm regards,</p>
             <p className="font-bold text-slate-900 mt-0.5 text-left">{senderName}.</p>
           </div>
         </div>
 
-        {/* Spacer for Boat Graphic area at bottom of card */}
-        <div className="pb-36 sm:pb-44 z-10 pointer-events-none"></div>
+        {/* Spacer for Boat Graphic area at bottom of card - Increased to push boat down on mobile */}
+        <div className="pb-64 sm:pb-48 z-10 pointer-events-none"></div>
       </div>
 
       {/* Black Footer Section */}
@@ -284,7 +284,7 @@ export function generateEmailHTML({
     .sign-off { margin-top: 12px; font-size: 14px; color: #1e293b !important; text-align: left; }
     .bottom-section {
       text-align: left;
-      padding: 0 48px 200px 48px;
+      padding: 0 48px 240px 48px;
     }
     .black-footer {
       background-color: #0d0d0d !important;
@@ -330,7 +330,7 @@ export function generateEmailHTML({
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 48px 200px 48px !important;
+        padding: 0 48px 240px 48px !important;
       }
     }
 
@@ -356,7 +356,7 @@ export function generateEmailHTML({
         margin-bottom: 2px !important;
       }
       .onam-logo-img {
-        max-height: 48px !important;
+        max-height: 46px !important;
       }
       .onam-logo-subtitle {
         font-size: 11px !important;
@@ -369,7 +369,7 @@ export function generateEmailHTML({
         height: 12px !important;
       }
       .content-body {
-        padding: 0px 14px 6px 52px !important;
+        padding: 0px 14px 4px 52px !important;
         text-align: left !important;
       }
       .main-heading {
@@ -384,22 +384,22 @@ export function generateEmailHTML({
         text-align: left !important;
       }
       .paragraph {
-        font-size: 12.5px !important;
+        font-size: 12px !important;
         line-height: 1.45 !important;
         margin-bottom: 6px !important;
         text-align: left !important;
       }
       .paragraph.quote-text {
-        margin-top: 8px !important;
+        margin-top: 6px !important;
       }
       .sign-off {
-        margin-top: 12px !important;
-        padding-bottom: 60px !important;
-        font-size: 13px !important;
+        margin-top: 10px !important;
+        padding-bottom: 0px !important;
+        font-size: 12.5px !important;
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 14px 120px 14px !important;
+        padding: 0 14px 270px 14px !important;
       }
       .black-footer {
         padding: 12px 8px !important;
