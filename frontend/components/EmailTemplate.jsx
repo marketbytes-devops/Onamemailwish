@@ -91,10 +91,7 @@ export function OnamEmailCard({
         <div className="pl-[52px] pr-3.5 sm:pl-20 sm:pr-14 pt-3 sm:pt-4 pb-2 flex-1 flex flex-col justify-start text-gray-800 leading-relaxed font-sans text-xs sm:text-sm text-left">
           {/* Main Heading & Greeting */}
           <div className="mb-2.5 sm:mb-3 text-left">
-            <h3 className="text-xs sm:text-lg font-semibold text-slate-900 mt-1 sm:mt-4 mb-1.5 sm:mb-2 tracking-tight text-left">
-              Wishing You a Prosperous <span className="text-emerald-600">Harvest Season!</span>
-            </h3>
-            <p className="font-semibold text-gray-900 text-left">
+            <p className="font-semibold text-gray-900 text-left mt-1 sm:mt-4">
               Dear {clientName ? clientName : `${companyName} Team`},
             </p>
           </div>
@@ -133,14 +130,14 @@ export function OnamEmailCard({
           </div>
 
           {/* Sign off - Left Aligned with extra left indent */}
-          <div className="mt-8 sm:mt-5 text-xs sm:text-sm text-slate-800 font-sans text-left pb-14 sm:pb-0">
+          <div className="mt-8 sm:mt-5 text-xs sm:text-sm text-slate-800 font-sans text-left pb-28 sm:pb-0">
             <p className="text-left">With warm regards,</p>
             <p className="font-bold text-slate-900 mt-0.5 text-left">{senderName}.</p>
           </div>
         </div>
 
         {/* Spacer for Boat Graphic area at bottom of card */}
-        <div className="pb-28 sm:pb-48 z-10 pointer-events-none"></div>
+        <div className="pb-40 sm:pb-48 z-10 pointer-events-none"></div>
       </div>
 
       {/* Black Footer Section */}
@@ -394,12 +391,12 @@ export function generateEmailHTML({
       }
       .sign-off {
         margin-top: 28px !important;
-        padding-bottom: 48px !important;
+        padding-bottom: 80px !important;
         font-size: 13px !important;
         text-align: left !important;
       }
       .bottom-section {
-        padding: 0 14px 100px 14px !important;
+        padding: 0 14px 140px 14px !important;
       }
       .black-footer {
         padding: 12px 8px !important;
@@ -462,8 +459,7 @@ export function generateEmailHTML({
       </div>
 
       <div class="content-body" style="color: #1e293b !important; text-align: left;">
-        <div class="main-heading" style="color: #0f172a !important; text-align: left;">Wishing You a Prosperous <span class="green-text" style="color: #059669 !important;">Harvest Season!</span></div>
-        <div class="dear-text" style="color: #0f172a !important; text-align: left;">Dear ${clientName ? clientName : `${companyName} Team`},</div>
+        <div class="dear-text" style="color: #0f172a !important; text-align: left; margin-top: 16px;">Dear ${clientName ? clientName : `${companyName} Team`},</div>
         ${p1 ? `<div class="paragraph" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(p1, contextVars)}</div>` : ''}
         ${p2 ? `<div class="paragraph" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(p2, contextVars)}</div>` : ''}
         ${p3 ? `<div class="paragraph" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(p3, contextVars)}</div>` : ''}
