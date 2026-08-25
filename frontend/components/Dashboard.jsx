@@ -286,7 +286,9 @@ export default function Dashboard() {
               ) : (
                 <Send className="w-3.5 h-3.5" />
               )}
-              {isSending ? "Sending..." : `Dispatch (${toEmails.length} To)`}
+              {isSending
+                ? "Sending..."
+                : `Dispatch (${toEmails.length} To${ccEmails.length > 0 ? ` + ${ccEmails.length} CC` : ""})`}
             </button>
 
             {/* Hide Header Button */}
@@ -900,6 +902,37 @@ export default function Dashboard() {
             <p className="text-xs text-slate-700 leading-relaxed mb-4 bg-slate-50 p-3 rounded-xl border border-slate-200">
               {sendResult.message || sendResult.error}
             </p>
+
+            {(sendResult.isRateLimit || (sendResult.error && (sendResult.error.toLowerCase().includes("ratelimit") || sendResult.error.includes("451")))) && (
+              <div className="mb-4 p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs space-y-2">
+                <p className="font-bold text-amber-900 flex items-center gap-1.5">
+                  <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                  Hostinger SMTP Rate Limit Info
+                </p>
+                <p className="text-[11px] text-amber-800 leading-relaxed">
+                  Hostinger server (<code className="font-mono bg-amber-100/70 px-1 py-0.5 rounded">smtp.hostinger.com</code>) counts every CC email as an extra recipient towards your hourly limit (<code className="font-mono bg-amber-100/70 px-1 py-0.5 rounded">hostinger_out_ratelimit</code>).
+                </p>
+                <div className="pt-2 border-t border-amber-200/70 text-[11px] text-amber-900 space-y-1">
+                  <p className="font-semibold">How to resolve:</p>
+                  <ul className="list-disc list-inside space-y-1 text-amber-800">
+                    <li><strong className="text-amber-900">Wait 5–10 minutes:</strong> Hostinger&apos;s per-minute / hourly sending limit key will reset automatically.</li>
+                    <li><strong className="text-amber-900">Send without CC:</strong> Removing CC uses only 1 recipient slot instead of 2.</li>
+                    <li>
+                      <strong className="text-amber-900">Use Custom SMTP:</strong> Configure your own SMTP (SendGrid / Gmail / Amazon SES) in the{" "}
+                      <button
+                        onClick={() => {
+                          setSendResult(null);
+                          setActiveTab("settings");
+                        }}
+                        className="font-bold underline text-rose-700 hover:text-rose-900"
+                      >
+                        SMTP Server tab
+                      </button>.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            )}
 
             {sendResult.recipients && (
               <div className="space-y-2 text-xs text-slate-600 mb-6 bg-slate-50 p-3 rounded-xl border border-slate-200">
