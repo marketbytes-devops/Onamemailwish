@@ -88,7 +88,7 @@ export function OnamEmailCard({
         </div>
 
         {/* Content Section (Middle) - Mobile responsive padding */}
-        <div className="pl-[52px] pr-3.5 sm:pl-20 sm:pr-14 pt-3 sm:pt-4 pb-2 flex-1 flex flex-col justify-start text-gray-800 leading-relaxed font-sans text-xs sm:text-sm text-left">
+        <div className="pl-[52px] pr-3.5 sm:pl-20 sm:pr-14 pt-12 sm:pt-4 pb-2 flex-1 flex flex-col justify-start text-gray-800 leading-relaxed font-sans text-xs sm:text-sm text-left">
           {/* Main Heading & Greeting */}
           <div className="mb-2.5 sm:mb-3 text-left">
             <p className="font-semibold text-gray-900 text-left mt-1 sm:mt-4">
