@@ -88,10 +88,10 @@ export function OnamEmailCard({
         </div>
 
         {/* Content Section (Middle) - Mobile responsive padding */}
-        <div className="pl-[52px] pr-3.5 sm:pl-20 sm:pr-14 pt-12 sm:pt-4 pb-2 flex-1 flex flex-col justify-start text-gray-800 leading-relaxed font-sans text-xs sm:text-sm text-left">
+        <div className="pl-[52px] pr-3.5 sm:pl-20 sm:pr-14 pt-3 sm:pt-4 pb-2 flex-1 flex flex-col justify-start text-gray-800 leading-relaxed font-sans text-xs sm:text-sm text-left">
           {/* Main Heading & Greeting */}
           <div className="mb-2.5 sm:mb-3 text-left">
-            <p className="font-semibold text-gray-900 text-left mt-1 sm:mt-4">
+            <p className="font-semibold text-gray-900 text-left mt-0 sm:mt-4">
               Dear {clientName ? clientName : `${companyName} Team`},
             </p>
           </div>
@@ -123,7 +123,7 @@ export function OnamEmailCard({
             )}
 
             {subQuote && (
-              <p className="text-slate-800 text-left">
+              <p className="font-bold text-slate-900 text-left">
                 {renderDynamicTextReact(subQuote, contextVars)}
               </p>
             )}
@@ -367,7 +367,7 @@ export function generateEmailHTML({
         height: 14px !important;
       }
       .content-body {
-        padding: 12px 14px 8px 52px !important;
+        padding: 4px 14px 8px 52px !important;
         text-align: left !important;
       }
       .main-heading {
@@ -377,6 +377,7 @@ export function generateEmailHTML({
       }
       .dear-text {
         font-size: 13px !important;
+        margin-top: 2px !important;
         margin-bottom: 6px !important;
         text-align: left !important;
       }
@@ -464,7 +465,7 @@ export function generateEmailHTML({
         ${p2 ? `<div class="paragraph" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(p2, contextVars)}</div>` : ''}
         ${p3 ? `<div class="paragraph" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(p3, contextVars)}</div>` : ''}
         ${quote ? `<div class="paragraph quote-text" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(quote, contextVars)}</div>` : ''}
-        ${subQuote ? `<div class="paragraph" style="color: #334155 !important; text-align: left;">${renderDynamicTextHTML(subQuote, contextVars)}</div>` : ''}
+        ${subQuote ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 700; text-align: left;">${renderDynamicTextHTML(subQuote, contextVars)}</div>` : ''}
         <div class="sign-off" style="color: #1e293b !important; text-align: left;">
           <p style="margin:0; color: #1e293b !important; text-align: left;">With warm regards,</p>
           <p style="margin:4px 0 0 0; font-weight: 700; color: #0f172a !important; text-align: left;">${senderName}.</p>
