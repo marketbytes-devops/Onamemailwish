@@ -200,12 +200,12 @@ export function OnamEmailCard({
       </div>
 
       {/* Black Footer Section */}
-      <div className="w-full bg-[#0d0d0d] py-3 sm:py-4 px-4 sm:px-6 text-center z-20">
+      <div className="w-full bg-[#0d0d0d] pt-4 pb-6 sm:pt-5 sm:pb-7 px-4 sm:px-6 text-center z-20 flex justify-center items-center">
         <a
           href={buttonUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-[#f89a1c] hover:bg-[#e0880f] text-white font-bold text-xs sm:text-sm py-2.5 px-8 rounded-full shadow-md transition-all tracking-wide"
+          className="inline-block bg-[#f89a1c] hover:bg-[#e0880f] text-white font-bold text-xs sm:text-sm py-2.5 sm:py-3 px-8 sm:px-10 rounded-full shadow-md transition-all tracking-wide text-center mx-auto"
           style={{ animation: "pulse-beat 1.6s infinite ease-in-out" }}
         >
           {formattedButtonText}
@@ -345,9 +345,12 @@ export function generateEmailHTML({
     .paragraph { margin-bottom: 9px; color: #0f172a !important; font-size: 13.5px; line-height: 1.6; font-weight: 400; text-align: left; }
     .subquote-text { font-weight: 700 !important; color: #020617 !important; text-align: left; }
     .sign-off { margin-top: 14px; font-size: 14px; color: #0f172a !important; font-weight: 400; text-align: left; }
-    .bottom-section {
-      text-align: left;
-      padding: 0 48px 240px 48px;
+    .black-footer {
+      background-color: #0d0d0d !important;
+      padding: 18px 20px 24px 20px !important;
+      text-align: center !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
     @keyframes pulse-beat {
       0% {
@@ -364,7 +367,7 @@ export function generateEmailHTML({
       }
     }
     .cta-button {
-      display: inline-block;
+      display: inline-block !important;
       background-color: #f89a1c;
       color: #ffffff !important;
       font-weight: 700;
@@ -375,6 +378,8 @@ export function generateEmailHTML({
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       animation: pulse-beat 1.6s infinite ease-in-out;
       transition: transform 0.2s ease;
+      text-align: center !important;
+      margin: 0 auto !important;
     }
 
     /* Desktop View (> 600px) */
@@ -488,11 +493,15 @@ export function generateEmailHTML({
         padding: 0 14px 350px 14px !important;
       }
       .black-footer {
-        padding: 12px 8px !important;
+        padding: 16px 12px 20px 12px !important;
+        text-align: center !important;
       }
       .cta-button {
-        padding: 8px 24px !important;
+        padding: 10px 24px !important;
         font-size: 13px !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+        display: inline-block !important;
       }
     }
 
@@ -509,7 +518,7 @@ export function generateEmailHTML({
       .paragraph { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
       .subquote-text { color: #020617 !important; text-align: left !important; font-weight: 700 !important; }
       .sign-off { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
-      .black-footer { background-color: #0d0d0d !important; }
+      .black-footer { background-color: #0d0d0d !important; text-align: center !important; }
     }
 
     /* Target Mobile Gmail App Dark Mode Inversion Override */
@@ -524,6 +533,8 @@ export function generateEmailHTML({
     u + .body .paragraph { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
     u + .body .subquote-text { color: #020617 !important; text-align: left !important; font-weight: 700 !important; }
     u + .body .sign-off { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
+    u + .body .black-footer { background-color: #0d0d0d !important; text-align: center !important; }
+    u + .body .cta-button { text-align: center !important; display: inline-block !important; margin: 0 auto !important; }
   </style>
 </head>
 <body class="body">
@@ -569,8 +580,14 @@ export function generateEmailHTML({
     </v:rect>
     <![endif]-->
 
-    <div class="black-footer" style="background-color: #0d0d0d !important;">
-      <a href="${buttonUrl}" class="cta-button" target="_blank">${formattedButtonText}</a>
+    <div class="black-footer" style="background-color: #0d0d0d !important; text-align: center !important; padding: 18px 20px 24px 20px; width: 100%; box-sizing: border-box;">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" align="center" style="width: 100% !important; margin: 0 auto !important; text-align: center !important;">
+        <tr>
+          <td align="center" style="text-align: center !important; background-color: #0d0d0d !important;">
+            <a href="${buttonUrl}" class="cta-button" target="_blank" style="display: inline-block !important; text-align: center !important; margin: 0 auto !important;">${formattedButtonText}</a>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </body>
