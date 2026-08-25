@@ -13,7 +13,17 @@ function renderDynamicTextReact(text, { companyName = "ALSI Global", clientName 
     .replaceAll("{{short_name}}", activeShort)
     .replaceAll("{{team_name}}", activeShort);
 
-  const terms = Array.from(new Set([trimmedCompany, trimmedClient, activeShort]))
+  const terms = Array.from(
+    new Set([
+      `${trimmedCompany} Team`,
+      `${trimmedCompany} team`,
+      `${activeShort} Team`,
+      `${activeShort} team`,
+      trimmedCompany,
+      trimmedClient,
+      activeShort
+    ])
+  )
     .filter(Boolean)
     .sort((a, b) => b.length - a.length);
 
@@ -44,7 +54,17 @@ function renderDynamicTextHTML(text, { companyName = "ALSI Global", clientName =
     .replaceAll("{{short_name}}", activeShort)
     .replaceAll("{{team_name}}", activeShort);
 
-  const terms = Array.from(new Set([trimmedCompany, trimmedClient, activeShort]))
+  const terms = Array.from(
+    new Set([
+      `${trimmedCompany} Team`,
+      `${trimmedCompany} team`,
+      `${activeShort} Team`,
+      `${activeShort} team`,
+      trimmedCompany,
+      trimmedClient,
+      activeShort
+    ])
+  )
     .filter(Boolean)
     .sort((a, b) => b.length - a.length);
 
@@ -135,33 +155,33 @@ export function OnamEmailCard({
           </div>
 
           {/* Body Paragraphs & Quotes - Left Aligned */}
-          <div className="space-y-2 sm:space-y-2.5 text-slate-900 text-[13px] sm:text-sm leading-relaxed text-left font-medium">
+          <div className="space-y-2 sm:space-y-2.5 text-slate-900 text-[13px] sm:text-sm leading-relaxed text-left font-normal">
             {p1 && (
-              <p className="text-slate-900 text-left">
+              <p className="text-slate-900 text-left font-normal">
                 {renderDynamicTextReact(p1, contextVars)}
               </p>
             )}
 
             {p2 && (
-              <p className="text-slate-900 text-left">
+              <p className="text-slate-900 text-left font-normal">
                 {renderDynamicTextReact(p2, contextVars)}
               </p>
             )}
 
             {p3 && (
-              <p className="text-slate-900 text-left">
+              <p className="text-slate-900 text-left font-normal">
                 {renderDynamicTextReact(p3, contextVars)}
               </p>
             )}
 
             {quote && (
-              <p className="text-slate-900 text-left mt-2 sm:mt-0 font-medium">
+              <p className="text-slate-900 text-left mt-2 sm:mt-0 font-normal">
                 {renderDynamicTextReact(quote, contextVars)}
               </p>
             )}
 
             {subQuote && (
-              <p className="font-bold text-slate-950 text-left text-[13.5px] sm:text-sm">
+              <p className="text-slate-900 text-left text-[13.5px] sm:text-sm font-normal">
                 {renderDynamicTextReact(subQuote, contextVars)}
               </p>
             )}
@@ -319,7 +339,7 @@ export function generateEmailHTML({
     }
     .green-text { color: #059669 !important; }
     .dear-text { font-weight: 400; color: #0f172a !important; margin-bottom: 8px; margin-top: 6px; text-align: left; font-size: 14.5px; }
-    .paragraph { margin-bottom: 9px; color: #0f172a !important; font-size: 13.5px; line-height: 1.6; font-weight: 500; text-align: left; }
+    .paragraph { margin-bottom: 9px; color: #0f172a !important; font-size: 13.5px; line-height: 1.6; font-weight: 400; text-align: left; }
     .sign-off { margin-top: 14px; font-size: 14px; color: #0f172a !important; font-weight: 400; text-align: left; }
     .bottom-section {
       text-align: left;
@@ -430,7 +450,7 @@ export function generateEmailHTML({
         line-height: 1.55 !important;
         margin-bottom: 7px !important;
         color: #0f172a !important;
-        font-weight: 500 !important;
+        font-weight: 400 !important;
         text-align: left !important;
       }
       .paragraph.quote-text {
@@ -465,9 +485,9 @@ export function generateEmailHTML({
       .content-body { color: #0f172a !important; text-align: left !important; }
       .main-heading { color: #0f172a !important; text-align: left !important; }
       .green-text { color: #059669 !important; }
-      .dear-text { color: #0f172a !important; text-align: left !important; }
-      .paragraph { color: #0f172a !important; text-align: left !important; }
-      .sign-off { color: #0f172a !important; text-align: left !important; }
+      .dear-text { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
+      .paragraph { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
+      .sign-off { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
       .black-footer { background-color: #0d0d0d !important; }
     }
 
@@ -479,9 +499,9 @@ export function generateEmailHTML({
     u + .body .content-body { color: #0f172a !important; text-align: left !important; }
     u + .body .main-heading { color: #0f172a !important; text-align: left !important; }
     u + .body .green-text { color: #059669 !important; }
-    u + .body .dear-text { color: #0f172a !important; text-align: left !important; }
-    u + .body .paragraph { color: #0f172a !important; text-align: left !important; }
-    u + .body .sign-off { color: #0f172a !important; text-align: left !important; }
+    u + .body .dear-text { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
+    u + .body .paragraph { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
+    u + .body .sign-off { color: #0f172a !important; text-align: left !important; font-weight: 400 !important; }
   </style>
 </head>
 <body class="body">
@@ -509,11 +529,11 @@ export function generateEmailHTML({
 
       <div class="content-body" style="color: #0f172a !important; text-align: left;">
         <div class="dear-text" style="color: #0f172a !important; font-weight: 400; text-align: left; margin-top: 0px;">Dear ${clientName ? `<strong style="font-weight: 700;">${clientName}</strong>` : `<strong style="font-weight: 700;">${companyName}</strong> Team`},</div>
-        ${p1 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 500; text-align: left;">${renderDynamicTextHTML(p1, contextVars)}</div>` : ''}
-        ${p2 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 500; text-align: left;">${renderDynamicTextHTML(p2, contextVars)}</div>` : ''}
-        ${p3 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 500; text-align: left;">${renderDynamicTextHTML(p3, contextVars)}</div>` : ''}
-        ${quote ? `<div class="paragraph quote-text" style="color: #0f172a !important; font-weight: 500; text-align: left;">${renderDynamicTextHTML(quote, contextVars)}</div>` : ''}
-        ${subQuote ? `<div class="paragraph" style="color: #020617 !important; font-weight: 700; text-align: left;">${renderDynamicTextHTML(subQuote, contextVars)}</div>` : ''}
+        ${p1 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(p1, contextVars)}</div>` : ''}
+        ${p2 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(p2, contextVars)}</div>` : ''}
+        ${p3 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(p3, contextVars)}</div>` : ''}
+        ${quote ? `<div class="paragraph quote-text" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(quote, contextVars)}</div>` : ''}
+        ${subQuote ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 400; text-align: left;">${renderDynamicTextHTML(subQuote, contextVars)}</div>` : ''}
         <div class="sign-off" style="color: #0f172a !important; text-align: left;">
           <p style="margin:0; color: #0f172a !important; font-weight: 400; text-align: left;">With warm regards,</p>
           <p style="margin:2px 0 0 0; font-weight: 700; color: #020617 !important; text-align: left;">${senderName}.</p>
