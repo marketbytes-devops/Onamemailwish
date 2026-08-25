@@ -1,24 +1,59 @@
 import React from "react";
 
-// Helper to replace variable tags like {{client_name}}, {{company_name}}, {{short_name}}
-function replacePlaceholders(text, { companyName = "ALSI Global", clientName = "Syam", shortName = "ALSI" }) {
+// Render React elements with replaced dynamic placeholders & bolded variables
+function renderDynamicTextReact(text, { companyName = "ALSI Global", clientName = "Syam", shortName = "ALSI" }) {
   if (!text) return "";
-  const activeShort = shortName || (companyName ? companyName.split(" ")[0] : "ALSI");
-  return text
-    .replaceAll("{{company_name}}", companyName)
-    .replaceAll("{{client_name}}", clientName)
+  const activeShort = (shortName || (companyName ? companyName.split(" ")[0] : "ALSI")).trim();
+  const trimmedCompany = (companyName || "ALSI Global").trim();
+  const trimmedClient = (clientName || "Syam").trim();
+
+  let textWithValues = text
+    .replaceAll("{{company_name}}", trimmedCompany)
+    .replaceAll("{{client_name}}", trimmedClient)
     .replaceAll("{{short_name}}", activeShort)
     .replaceAll("{{team_name}}", activeShort);
-}
 
-// Render React elements with replaced dynamic placeholders
-function renderDynamicTextReact(text, { companyName = "ALSI Global", clientName = "Syam", shortName = "ALSI" }) {
-  return replacePlaceholders(text, { companyName, clientName, shortName });
+  const terms = Array.from(new Set([trimmedCompany, trimmedClient, activeShort]))
+    .filter(Boolean)
+    .sort((a, b) => b.length - a.length);
+
+  if (terms.length === 0) return textWithValues;
+
+  const escapedTerms = terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const regex = new RegExp(`(${escapedTerms.join("|")})`, "g");
+  const parts = textWithValues.split(regex);
+
+  return parts.map((part, i) => {
+    if (terms.includes(part)) {
+      return <strong key={i} className="font-bold text-slate-950">{part}</strong>;
+    }
+    return part;
+  });
 }
 
 // Render HTML string with replaced dynamic placeholders for generateEmailHTML
 function renderDynamicTextHTML(text, { companyName = "ALSI Global", clientName = "Syam", shortName = "ALSI" }) {
-  return replacePlaceholders(text, { companyName, clientName, shortName });
+  if (!text) return "";
+  const activeShort = (shortName || (companyName ? companyName.split(" ")[0] : "ALSI")).trim();
+  const trimmedCompany = (companyName || "ALSI Global").trim();
+  const trimmedClient = (clientName || "Syam").trim();
+
+  let textWithValues = text
+    .replaceAll("{{company_name}}", trimmedCompany)
+    .replaceAll("{{client_name}}", trimmedClient)
+    .replaceAll("{{short_name}}", activeShort)
+    .replaceAll("{{team_name}}", activeShort);
+
+  const terms = Array.from(new Set([trimmedCompany, trimmedClient, activeShort]))
+    .filter(Boolean)
+    .sort((a, b) => b.length - a.length);
+
+  if (terms.length === 0) return textWithValues;
+
+  const escapedTerms = terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const regex = new RegExp(`(${escapedTerms.join("|")})`, "g");
+
+  return textWithValues.replace(regex, (match) => `<strong>${match}</strong>`);
 }
 
 export function OnamEmailCard({
@@ -38,7 +73,7 @@ export function OnamEmailCard({
 }) {
   const activeShort = shortName || (companyName ? companyName.split(" ")[0] : "ALSI");
 
-  const p1 = bodyText1 ?? `As the season of Onam brings with it the spirit of togetherness, gratitude, and prosperity, we extend our heartfelt wishes to you, your family and everyone at ${companyName}.`;
+  const p1 = bodyText1 ?? `As the season of Onam brings with it the spirit of togetherness, gratitude, and prosperity, we extend our heartfelt wishes to you, your family and everyone at {{company_name}}.`;
   const p2 = bodyText2 ?? `Onam is a beautiful time to celebrate the people and relationships that make every journey meaningful. We truly appreciate the opportunity to work with you and the ${activeShort} team and value the connection we have built along the way.`;
   const p3 = bodyText3 ?? `Your support and collaboration have made our association a wonderful experience. As we look ahead, we hope to continue sharing ideas, achieving new milestones and being part of many more meaningful moments together.`;
   const quote = bottomQuote ?? `May this Onam bring your home the warmth of family, the joy of togetherness and a year ahead filled with peace, good health, prosperity and new beginnings.`;
@@ -94,8 +129,8 @@ export function OnamEmailCard({
         >
           {/* Main Heading & Greeting */}
           <div className="mb-1 sm:mb-2.5 text-left">
-            <p className="font-bold text-slate-900 text-left mt-0 sm:mt-2 text-[13.5px] sm:text-base">
-              Dear {clientName ? clientName : `${companyName} Team`},
+            <p className="font-normal text-slate-900 text-left mt-0 sm:mt-2 text-[13.5px] sm:text-base">
+              Dear {clientName ? <strong className="font-bold text-slate-950">{clientName}</strong> : <><strong className="font-bold text-slate-950">{companyName}</strong> Team</>},
             </p>
           </div>
 
@@ -133,8 +168,8 @@ export function OnamEmailCard({
           </div>
 
           {/* Sign off - Left Aligned with extra left indent */}
-          <div className="mt-4 sm:mt-4 text-[13px] sm:text-sm text-slate-900 font-sans text-left pb-0 font-medium">
-            <p className="text-left font-semibold text-slate-900">With warm regards,</p>
+          <div className="mt-4 sm:mt-4 text-[13px] sm:text-sm text-slate-900 font-sans text-left pb-0 font-normal">
+            <p className="text-left font-normal text-slate-900">With warm regards,</p>
             <p className="font-bold text-slate-950 mt-0.5 text-left">{senderName}.</p>
           </div>
         </div>
@@ -178,7 +213,7 @@ export function generateEmailHTML({
 }) {
   const activeShort = shortName || (companyName ? companyName.split(" ")[0] : "ALSI");
 
-  const p1 = bodyText1 ?? `As the season of Onam brings with it the spirit of togetherness, gratitude, and prosperity, we extend our heartfelt wishes to you, your family and everyone at ${companyName}.`;
+  const p1 = bodyText1 ?? `As the season of Onam brings with it the spirit of togetherness, gratitude, and prosperity, we extend our heartfelt wishes to you, your family and everyone at {{company_name}}.`;
   const p2 = bodyText2 ?? `Onam is a beautiful time to celebrate the people and relationships that make every journey meaningful. We truly appreciate the opportunity to work with you and the ${activeShort} team and value the connection we have built along the way.`;
   const p3 = bodyText3 ?? `Your support and collaboration have made our association a wonderful experience. As we look ahead, we hope to continue sharing ideas, achieving new milestones and being part of many more meaningful moments together.`;
   const quote = bottomQuote ?? `May this Onam bring your home the warmth of family, the joy of togetherness and a year ahead filled with peace, good health, prosperity and new beginnings.`;
@@ -283,9 +318,9 @@ export function generateEmailHTML({
       text-align: left;
     }
     .green-text { color: #059669 !important; }
-    .dear-text { font-weight: 700; color: #0f172a !important; margin-bottom: 8px; margin-top: 6px; text-align: left; font-size: 14.5px; }
+    .dear-text { font-weight: 400; color: #0f172a !important; margin-bottom: 8px; margin-top: 6px; text-align: left; font-size: 14.5px; }
     .paragraph { margin-bottom: 9px; color: #0f172a !important; font-size: 13.5px; line-height: 1.6; font-weight: 500; text-align: left; }
-    .sign-off { margin-top: 14px; font-size: 14px; color: #0f172a !important; font-weight: 500; text-align: left; }
+    .sign-off { margin-top: 14px; font-size: 14px; color: #0f172a !important; font-weight: 400; text-align: left; }
     .bottom-section {
       text-align: left;
       padding: 0 48px 240px 48px;
@@ -387,7 +422,7 @@ export function generateEmailHTML({
         margin-top: 0px !important;
         margin-bottom: 6px !important;
         color: #0f172a !important;
-        font-weight: 700 !important;
+        font-weight: 400 !important;
         text-align: left !important;
       }
       .paragraph {
@@ -406,7 +441,7 @@ export function generateEmailHTML({
         padding-bottom: 0px !important;
         font-size: 13.5px !important;
         color: #0f172a !important;
-        font-weight: 600 !important;
+        font-weight: 400 !important;
         text-align: left !important;
       }
       .bottom-section {
@@ -473,14 +508,14 @@ export function generateEmailHTML({
       </div>
 
       <div class="content-body" style="color: #0f172a !important; text-align: left;">
-        <div class="dear-text" style="color: #0f172a !important; text-align: left; margin-top: 0px;">Dear ${clientName ? clientName : `${companyName} Team`},</div>
+        <div class="dear-text" style="color: #0f172a !important; font-weight: 400; text-align: left; margin-top: 0px;">Dear ${clientName ? `<strong style="font-weight: 700;">${clientName}</strong>` : `<strong style="font-weight: 700;">${companyName}</strong> Team`},</div>
         ${p1 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 500; text-align: left;">${renderDynamicTextHTML(p1, contextVars)}</div>` : ''}
         ${p2 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 500; text-align: left;">${renderDynamicTextHTML(p2, contextVars)}</div>` : ''}
         ${p3 ? `<div class="paragraph" style="color: #0f172a !important; font-weight: 500; text-align: left;">${renderDynamicTextHTML(p3, contextVars)}</div>` : ''}
         ${quote ? `<div class="paragraph quote-text" style="color: #0f172a !important; font-weight: 500; text-align: left;">${renderDynamicTextHTML(quote, contextVars)}</div>` : ''}
         ${subQuote ? `<div class="paragraph" style="color: #020617 !important; font-weight: 700; text-align: left;">${renderDynamicTextHTML(subQuote, contextVars)}</div>` : ''}
         <div class="sign-off" style="color: #0f172a !important; text-align: left;">
-          <p style="margin:0; color: #0f172a !important; font-weight: 600; text-align: left;">With warm regards,</p>
+          <p style="margin:0; color: #0f172a !important; font-weight: 400; text-align: left;">With warm regards,</p>
           <p style="margin:2px 0 0 0; font-weight: 700; color: #020617 !important; text-align: left;">${senderName}.</p>
         </div>
       </div>
