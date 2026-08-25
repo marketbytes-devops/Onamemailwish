@@ -60,7 +60,7 @@ export function OnamEmailCard({
             <div className="flex items-center gap-1.5">
               <img
                 src="/logo2.png"
-                alt="MarketBytes"
+                alt=""
                 className="h-7 sm:h-9 w-auto object-contain"
               />
             </div>
@@ -448,7 +448,7 @@ export function generateEmailHTML({
     <div class="bg-wrapper" style="background-image: url('${finalBgImageUrl}');">
       <div class="top-header" style="background-color: #ffffff !important;">
         <div class="brand-title">
-          <img src="${finalLogo2Url}" alt="MarketBytes" style="max-height:36px; width:auto; display:inline-block;" />
+          <img src="${finalLogo2Url}" alt="" style="max-height:36px; width:auto; display:inline-block;" />
         </div>
         <div style="text-align: center; margin: 2px 0 4px 0;">
           <img src="${finalLogoUrl}" alt="Happy Onam" class="onam-logo-img" style="max-height:85px; width:auto; display:inline-block;" />

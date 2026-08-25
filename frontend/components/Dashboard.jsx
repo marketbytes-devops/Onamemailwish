@@ -229,8 +229,8 @@ export default function Dashboard() {
         <header className="h-14 shrink-0 border-b border-slate-200 bg-white/90 backdrop-blur-md px-6 flex items-center justify-between z-30 shadow-xs transition-all">
           <div className="flex items-center gap-3">
             <img
-              src="/logo.png"
-              alt="MarketBytes Logo"
+              src="/logo2.png"
+              alt=""
               className="h-9 w-auto object-contain max-w-[160px]"
             />
             <div className="h-6 w-px bg-slate-200" />
